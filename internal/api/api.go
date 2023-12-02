@@ -22,9 +22,16 @@ func (a *ApiServer) Run() error {
 }
 
 func (a *ApiServer) IEC61850(w http.ResponseWriter, r *http.Request) error {
+
 	err := utils.WriteJSON(w, http.StatusOK, model.IEC61850{Key: "voltage", Value: 310})
 	if err != nil {
 		return err
 	}
 	return nil
+}
+
+func NewApiServer(endpoint string) *ApiServer {
+	return &ApiServer{
+		Endpoint: endpoint,
+	}
 }
