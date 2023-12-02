@@ -7,3 +7,5 @@ import (
 type Mongo struct {
 	db *mongo.Collection
 }
+
+func NewMongo(string)
