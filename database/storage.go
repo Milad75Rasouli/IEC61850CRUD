@@ -1,9 +1,13 @@
 package database
 
-import "github.com/Milad75Rasouli/IEC61850CRUD/model"
+import (
+	"context"
+
+	"github.com/Milad75Rasouli/IEC61850CRUD/model"
+)
 
 type Storage interface {
-	CreateSignal(model.IEC61850) error
-	RemoveSignal(model.IEC61850) error
-	AllSignals(model.IEC61850) error
+	AddSignal(string, model.Signal, context.Context) error
+	RemoveSignal(string, string, context.Context) error
+	AllSignals(string, context.Context) ([]model.Signal, error)
 }

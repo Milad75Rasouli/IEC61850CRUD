@@ -8,4 +8,4 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: 1234qwer
     ports:
-      - 37017:37017 
+      - 27017:27017 

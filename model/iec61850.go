@@ -1,6 +1,6 @@
 package model
 
-type IEC61850 struct {
-	Key   string `json:"key"`
-	Value int    `json:"value"`
+type Signal struct {
+	Key   string `json:"key" bson:"key"`
+	Value int    `json:"value" bson:"value"`
 }
