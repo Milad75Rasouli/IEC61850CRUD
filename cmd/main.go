@@ -1,6 +1,8 @@
 package main
 
 import (
+	"log"
+
 	"github.com/Milad75Rasouli/IEC61850CRUD/database"
 	"github.com/Milad75Rasouli/IEC61850CRUD/internal/api"
 )
@@ -13,6 +15,14 @@ func main() {
 		Pass: "1234qwer",
 	}
 
-	server := api.NewApiServer(":5000")
-	server.Run()
+	server, err := api.NewApiServer(":5000", conn)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	err = server.Run()
+	if err != nil {
+		log.Fatalln(err)
+	}
+
 }
