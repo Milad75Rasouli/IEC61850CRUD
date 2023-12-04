@@ -60,7 +60,7 @@ func (c *Consumer) InsertToDB() error {
 		switch ev.(type) {
 		case *kafka.Message:
 			msg := ev.String()
-			fmt.Println("Consumer Received:", msg)
+			//fmt.Println("Consumer Received:", msg)
 			c.db.AddSignal("IEC61850", model.Signal{Key: "IEC61850-Signal", Value: msg[5:]}, context.Background())
 		case kafka.Error:
 			return fmt.Errorf(ev.String())
