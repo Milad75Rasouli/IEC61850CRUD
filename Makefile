@@ -1,5 +1,5 @@
 build:
-	go build  -o ./bin/IEC61850Api ./cmd/main.go
+	go build  -o ./bin/server ./cmd/server/main.go
 
 run: build
-	./bin/IEC61850Api
+	./bin/server

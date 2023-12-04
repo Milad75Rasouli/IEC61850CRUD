@@ -1,9 +1,7 @@
 package api
 
 import (
-	"context"
 	"net/http"
-	"time"
 
 	"github.com/Milad75Rasouli/IEC61850CRUD/database"
 	"github.com/Milad75Rasouli/IEC61850CRUD/internal/service"
@@ -29,14 +27,7 @@ func (a *ApiServer) Run() error {
 	return nil
 }
 
-func NewApiServer(endpoint string, dbconfig database.MongoConnection) (*ApiServer, error) {
-	ctx, cancel := context.WithTimeout(context.Background(), 1500*time.Millisecond)
-	defer cancel()
-
-	db, err := database.NewMongo(dbconfig, ctx)
-	if err != nil {
-		return nil, err
-	}
+func NewApiServer(endpoint string, db database.Storage) (*ApiServer, error) {
 
 	return &ApiServer{
 		Endpoint: endpoint,
